@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/773bfdc6-c9ae-47b2-9bda-bbf0343fa2d5/console.sql" value="773bfdc6-c9ae-47b2-9bda-bbf0343fa2d5" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tracker/HabitsDAO.java" value="e08ecb49-ef2c-4785-afde-4628f28e2271" />
+  </component>
+</project>
