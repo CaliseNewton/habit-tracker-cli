@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        String url = "jdbc:sqlite:test.db";
+        String url = "jdbc:sqlite:habit_tracker.db";
 
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db");
+        Connection conn = DriverManager.getConnection(url);
         HabitsDAO dao = new HabitsDAO(conn);
         dao.setup();
 
@@ -17,31 +17,33 @@ public class Main {
 
         String key;
 
-        System.out.println("Welcome!");
+        System.out.println("Habit tracker.");
 
         while (!input.equals("0"))
         {
-            System.out.println("What would you like to do? \n 1. Add \n 2. Remove \n 0. Exit ");
+            System.out.println("What would you like to do? \n 1. Add habit \n 2. Remove habit \n 3. View habits \n 0. Exit ");
             input = scanner.nextLine(); // Read string input
             switch (input) {
                 case "0":
                     break;
                 case "1":
-                    System.out.print("enter id: ");
-                    key = scanner.nextLine();
-                    System.out.print("enter name: ");
+                    System.out.print("Enter habit name: ");
                     String name = scanner.nextLine();
-                    dao.add(key, name);
+                    dao.add(name);
 
                     System.out.print("Entry successful!");
                     break;
 
                 case "2":
-                    System.out.println("enter id: ");
+                    dao.get();
+                    System.out.print("Select habit to remove: ");
                     key = scanner.nextLine();
                     dao.remove(key);
 
-                    System.out.print("Removal successful!");
+                    System.out.println("Removal successful!");
+                    break;
+                case "3":
+                    dao.get();
                     break;
                 default:
                     System.out.println("Invalid input.");
